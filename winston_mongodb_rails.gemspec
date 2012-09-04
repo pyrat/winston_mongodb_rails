@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.description = "This allows many applications to log to a shared mongodb logger. It is useful, if you have many small applications / load balanced applications and you want to treat a log as a first class citizen."
   
   s.add_dependency('mongo')
+  s.add_dependency('bson_ext')
   
   s.required_rubygems_version = ">= 1.3.1"
   s.require_path = 'lib'

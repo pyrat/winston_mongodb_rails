@@ -4,7 +4,7 @@ module WinstonMongodbRails
     # Aim to rely on the mongodb driver for replicaset chat.
 
     # Looks for configuration files in this order
-    CONFIGURATION_FILES = ["mongoid.yml", "database.yml"]
+    CONFIGURATION_FILES = ["mongo_logger.yml", "mongoid.yml", "database.yml"]
     LOG_LEVEL_SYM = [:debug, :info, :warn, :error, :fatal, :unknown]
 
     def initialize(options={})

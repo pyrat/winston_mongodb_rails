@@ -3,19 +3,17 @@ class MongoDatabase
   attr_reader :connection
   
   def initialize(options = {})
-
+      
+    options = options.symbolize_keys  
+      
+      
     if ['production', 'staging'].include? Rails.env
 
-      @connection = Mongo::ReplSetConnection.new(APP_CONFIG['replicaset'], :read => :secondary, :name => APP_CONFIG['replicaset_name'])
-      @connection.add_auth(APP_CONFIG['database'], APP_CONFIG['username'], APP_CONFIG['password'])
-      @connection.add_auth('admin', APP_CONFIG['username'], APP_CONFIG['password'])
+      @connection = Mongo::ReplSetConnection.new(options[:replicaset], :read => :secondary, :name => options[:replicaset_name])
+      @connection.add_auth(options[:database], options[:username], options[:password])
+      @connection.add_auth('admin', options[:username], options[:password])
     else
-      # if APP_CONFIG['username']
-        # url = "mongodb://#{APP_CONFIG['username']}:#{APP_CONFIG['password']}@#{APP_CONFIG['host']}/#{APP_CONFIG['database']}"
-      # else
-        # url = "mongodb://#{APP_CONFIG['host']}"
-      # end
-      url = "mongodb://#{APP_CONFIG['host']}"
+      url = "mongodb://#{options[:host]}"
       @connection = Mongo::Connection.from_uri(url)
     end
 
