@@ -1,5 +1,5 @@
 #!/bin/zsh
 
 rm *.gem
-gem build recipiez.gemspec
+gem build winston_mongodb_rails.gemspec
 gem push `ls *.gem`
