@@ -25,6 +25,12 @@ For mongo configuration, you need to add the configuration of the mongodb databa
       database: logs
       replicaset: ['10.10.10.2:27017', '10.10.10.1:27017']
       replicaset_name: 'replicaset_name'
+      
+    development:
+      username: username 
+      password: password
+      database: logs
+      host: localhost
     
     
 ## Usage
