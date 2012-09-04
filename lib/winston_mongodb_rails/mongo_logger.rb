@@ -62,7 +62,7 @@ module WinstonMongodbRails
     end
     
     def connect
-      @mongo_connection ||= MongoDatabase.new.connection
+      @mongo_connection ||= MongoDatabase.new(@db_configuration).connection
       @logs_database ||= @mongo_connection.db(@mongo_database_name)
       @logs_collection ||= @logs_database.collection(@mongo_collection_name)
     end
