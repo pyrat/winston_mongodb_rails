@@ -17,7 +17,7 @@ Add `config/initializers/mongo_logger.rb`
     Mog = WinstonMongodbRails::MongoLogger.create_logger(app_config, ((app_config.paths.log.to_a rescue nil) || app_config.paths['log']).first)
     
     
-For mongo configuration, you need to add the configuration of the mongodb database to `mongoid.yml` or `database.yml`
+For mongo configuration, you need to add the configuration of the mongodb database to `config/mongo_logger.yml`, `config/mongoid.yml` or `config/database.yml`
     
     production:
       username: username
